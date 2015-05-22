@@ -1,0 +1,19 @@
+<form name="myForm" class="well edit-form-wrapper">
+	<fieldset>
+		<p>
+		<label class="col-sm-3">User Name: </label>
+		<input class="col-sm-5" type="text" name="name" ng-model="name" required/>
+			<span style="color:red" ng-show="myForm.name.$dirty && myForm.name.$invalid">
+  			<span ng-show="myForm.name.$error.required">Username is required.</span>
+		</p>
+		<p><label class="col-sm-3">User Password: </label>
+		<input class="col-sm-5" type="text" name="pass" ng-model="pass" required/>
+			<span style="color:red" ng-show="myForm.pass.$dirty && myForm.pass.$invalid">
+  			<span ng-show="myForm.pass.$error.required">Password is required.</span>
+		</p>
+		<p>
+		  <input class="btn btn-primary" type="button" value="Login" ng-disabled="myForm.name.$dirty && myForm.name.$invalid ||
+		  myForm.pass.$dirty && myForm.pass.$invalid" ng-click="login();">
+		</p>
+	</fieldset>
+</form>
