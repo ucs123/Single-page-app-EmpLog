@@ -18,7 +18,7 @@ var app = angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/login.html',
-        controller: 'LoginCtr'
+        controller: 'LoginCtr',
       })
       .when('/about', {
         templateUrl: 'views/about.html',
@@ -35,4 +35,16 @@ var app = angular
       .otherwise({
         redirectTo: '/'
       });
+  });
+
+  app.run(function ($rootScope, $location, copyuserdata) { 
+            $rootScope.$on( "$routeChangeStart", function(event, next, current) { 
+             if(!copyuserdata.isLoggedIn()){
+              if ( next.templateUrl === "views/login.html") {
+                 }
+               else {
+                  $location.path("/login");
+                }
+             }
+         });
   });

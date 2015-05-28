@@ -8,8 +8,9 @@
  * Controller of the empLogApp
  */
 angular.module('empLogApp')
-  .controller('LoginCtr', function ($scope,dataService, $location) {
+  .controller('LoginCtr', function ($scope,dataService, $location, copyuserdata) {
+  	$scope.user = {};
     $scope.login = function (){
-    	$location.path('/list');
+    	copyuserdata.checkLogin($scope.user);
     };
   });
